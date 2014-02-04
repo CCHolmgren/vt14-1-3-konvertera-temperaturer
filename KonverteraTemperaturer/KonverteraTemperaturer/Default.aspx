@@ -15,18 +15,19 @@
             <div>
                 <asp:Label Text="Starttemperatur" runat="server" />
                 <asp:TextBox runat="server" ID="StartTemp" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="None" ControlToValidate="StartTemp" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="StopTemp" Display="None" ErrorMessage="CompareValidator" ControlToValidate="StartTemp" Operator="LessThan" Type="Integer"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="StartTemp" ErrorMessage="Fyll i en starttemperatur">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="StopTemp" Display="None" ErrorMessage="Värdet är inte mindre än sluttemperaturen" ControlToValidate="StartTemp" Operator="LessThan" Type="Integer">*</asp:CompareValidator>
+                <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="StartTemp" Display="None" ErrorMessage="Värdet är inte ett heltal" Operator="DataTypeCheck" Type="Integer">*</asp:CompareValidator>
                 </div>
                 <div><asp:Label Text="Sluttemperatur" runat="server" />
                 <asp:TextBox runat="server" ID="StopTemp" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="None" ControlToValidate="StopTemp" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator2" runat="server" Display="None" ErrorMessage="CompareValidator" ControlToValidate="StopTemp" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ControlToValidate="StopTemp" ErrorMessage="Fyll i en sluttemperatur">*</asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" Display="None" ErrorMessage="Fyll i ett heltal" ControlToValidate="StopTemp" Operator="DataTypeCheck" Type="Integer">*</asp:CompareValidator>
             </div>
                 <div><asp:Label Text="Temperatursteg" runat="server" />
                 <asp:TextBox runat="server" ID="TempStep" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="None" ErrorMessage="RequiredFieldValidator" ControlToValidate="TempStep"></asp:RequiredFieldValidator>
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TempStep" Display="None" ErrorMessage="RangeValidator" MaximumValue="100" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ErrorMessage="Fyll i ett temperatursteg" ControlToValidate="TempStep">*</asp:RequiredFieldValidator>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TempStep" Display="None" ErrorMessage="Temperatursteget måste vara mellan 1 och 100." MaximumValue="100" MinimumValue="1" Type="Integer">*</asp:RangeValidator>
             </div>
                 <div><asp:Label Text="Typ av konvertering" runat="server" /></div>
                 <div><asp:RadioButton GroupName="CToF" runat="server" ID="Celsius" Checked="True"/>
