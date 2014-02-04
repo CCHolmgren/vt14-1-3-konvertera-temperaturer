@@ -14,16 +14,16 @@
         <div>
             <div>
                 <asp:Label Text="Starttemperatur" runat="server" />
-                <asp:TextBox runat="server" />
+                <asp:TextBox runat="server" ID="StartTemp" />
                 <asp:Label Text="Sluttemperatur" runat="server" />
-                <asp:TextBox runat="server" />
+                <asp:TextBox runat="server" ID="StopTemp" />
                 <asp:Label Text="Temperatursteg" runat="server" />
-                <asp:TextBox runat="server" />
+                <asp:TextBox runat="server" ID="TempStep" />
                 <asp:Label Text="Typ av konvertering" runat="server" />
-                <asp:RadioButtonList runat="server">
-                    <asp:ListItem Text="Celsius till fahrenheit" />
-                    <asp:ListItem Text="Fahrenheit till celsius" />
-                </asp:RadioButtonList>
+                <asp:RadioButton GroupName="CToF" runat="server" ID="Celsius" Checked="True"/>
+                <asp:Label Text="Celsius to fahrenheit" runat="server" />
+                <asp:RadioButton GroupName="CToF" runat="server" ID="Fahrenheit"/>
+                <asp:Label Text="Fahrenheit to Celsius" runat="server" />
                 <asp:Button Text="Konvertera" Name="ConvertButton" ID="ConvertButton" runat="server" OnClick="ConvertButton_Click" />
             </div>
             <div>
