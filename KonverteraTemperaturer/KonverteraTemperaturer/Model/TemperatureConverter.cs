@@ -13,7 +13,7 @@ namespace KonverteraTemperaturer.Model
         }
         public static int FahrenheitToCelsius(int degreesF)
         {
-            return Convert.ToInt32((degreesF - 32) * (5/9));
+            return Convert.ToInt32((degreesF - 32) / 1.8);
         }
     }
 }
