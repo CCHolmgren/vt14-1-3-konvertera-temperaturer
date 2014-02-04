@@ -39,7 +39,7 @@ namespace KonverteraTemperaturer
                 {
                     startC = TemperatureConverter.FahrenheitToCelsius(int.Parse(StartTemp.Text));
                     stopC = TemperatureConverter.FahrenheitToCelsius(int.Parse(StopTemp.Text));
-                    double placeholder = (stopF - startF) / step;
+                    double placeholder = (stopF - startF) / (step*1.8);
                     stepCount = (int)Math.Round(placeholder);
                     stepCount += 1;
                 }
