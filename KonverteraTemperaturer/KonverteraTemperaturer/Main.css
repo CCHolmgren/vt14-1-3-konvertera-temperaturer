@@ -1,0 +1,46 @@
+﻿body {
+}
+.formcontainer{
+    float:left;
+    width:15%;
+}
+input[type=text]{
+    width:175px;
+}
+input[type=submit]{
+    width:175px;
+}
+span{
+    width:205px;
+}
+table{
+    margin-left:50px;
+    text-align:center;
+    width:15%;
+    float:left;
+    border:1px solid black;
+    border-spacing:0px;
+}
+th, td {
+    margin-right: 0px;
+}
+tr{
+    background-color:grey;
+}
+tr:nth-child(2n){
+    background-color:white;
+}
+.tableheader{
+    background-color:black;
+    color:white;
+}
+.ol{
+    padding-left:0;
+    width:100%;
+    min-width:150px;
+    list-style: none;
+}
+li{
+    min-width:175px;
+    width:100%;
+}
