@@ -15,7 +15,7 @@
             <form id="form1" runat="server">
                 <ol class="ol">
                     <li>
-                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
                     </li>
                     <li>
                         <asp:Label Text="Starttemperatur" runat="server" />
