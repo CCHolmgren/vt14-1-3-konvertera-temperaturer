@@ -31,16 +31,18 @@ namespace KonverteraTemperaturer
                 {
                     startF = TemperatureConverter.CelsiusToFahrenheit(int.Parse(StartTemp.Text));
                     stopF = TemperatureConverter.CelsiusToFahrenheit(int.Parse(StopTemp.Text));
-                    stepCount = (stopC - startC) / step + 1;
+                    double placeholder = (stopC-startC)/step;
+                    stepCount = (int)Math.Round(placeholder);
+                    stepCount += 1;
                 }
                 else
                 {
                     startC = TemperatureConverter.FahrenheitToCelsius(int.Parse(StartTemp.Text));
                     stopC = TemperatureConverter.FahrenheitToCelsius(int.Parse(StopTemp.Text));
-                    stepCount = (stopF - startF) / step + 1;
+                    double placeholder = (stopF - startF) / step;
+                    stepCount = (int)Math.Round(placeholder);
+                    stepCount += 1;
                 }
-
-                //Assuming that we get correct steps, since the document doesn't say anything about it
 
                 for (int i = 0; i < stepCount; i++)
                 {
