@@ -21,29 +21,36 @@ namespace KonverteraTemperaturer
             if (Page.IsValid)
             {
                 int step = int.Parse(TempStep.Text);
-                int start;
-                int stop;
+                int startC = int.Parse(StartTemp.Text);
+                int stopC = int.Parse(StopTemp.Text);
+                int startF = int.Parse(StartTemp.Text);
+                int stopF = int.Parse(StopTemp.Text);
+                int stepCount;
 
                 if (Celsius.Checked)
                 {
-                    start = TemperatureConverter.CelsiusToFahrenheit(int.Parse(StartTemp.Text));
-                    stop = TemperatureConverter.CelsiusToFahrenheit(int.Parse(StopTemp.Text));
+                    startF = TemperatureConverter.CelsiusToFahrenheit(int.Parse(StartTemp.Text));
+                    stopF = TemperatureConverter.CelsiusToFahrenheit(int.Parse(StopTemp.Text));
+                    stepCount = (stopC - startC) / step + 1;
                 }
                 else
                 {
-                    start = TemperatureConverter.FahrenheitToCelsius(int.Parse(StartTemp.Text));
-                    stop = TemperatureConverter.FahrenheitToCelsius(int.Parse(StopTemp.Text));
+                    startC = TemperatureConverter.FahrenheitToCelsius(int.Parse(StartTemp.Text));
+                    stopC = TemperatureConverter.FahrenheitToCelsius(int.Parse(StopTemp.Text));
+                    stepCount = (stopF - startF) / step + 1;
                 }
 
-                for (int i = 0; i < 10; i++)
+                //Assuming that we get correct steps, since the document doesn't say anything about it
+
+                for (int i = 0; i < stepCount; i++)
                 {
                     TableRow tr = new TableRow();
-                    for (int j = 0; j < 2; j++)
-                    {
-                        TableCell tc = new TableCell();
-                        tc.Text = (j+5).ToString();
-                        tr.Cells.Add(tc);
-                    }
+                    TableCell tc = new TableCell();
+                    TableCell tf = new TableCell();
+                    tc.Text = (startC + i * step).ToString();
+                    tf.Text = (startF + i * step*1.8).ToString();
+                    tr.Cells.Add(tc);
+                    tr.Cells.Add(tf);
                     Table1.Rows.Add(tr);
                 }
                 Table1.Visible = true;
